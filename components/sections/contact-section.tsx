@@ -1,26 +1,27 @@
-"use client"
+'use client';
 
-import { Mail, Linkedin, Smartphone, Send } from "lucide-react"
-import { SectionWrapper } from "@/components/section-wrapper"
-import { SectionTitle } from "@/components/section-title"
+import { Mail, Linkedin, Smartphone, Send } from 'lucide-react';
+
+import { SectionTitle } from '@/components/section-title';
+import { SectionWrapper } from '@/components/section-wrapper';
 
 const contactInfo = [
   {
     icon: Mail,
-    label: "Email Profissional",
-    val: "contato@gabriel.dev",
+    label: 'Email Profissional',
+    val: 'setdevjohn@gmail.com',
   },
   {
     icon: Linkedin,
-    label: "LinkedIn",
-    val: "linkedin.com/in/gabrieldev",
+    label: 'LinkedIn',
+    val: 'linkedin.com/in/jhony-freitas',
   },
   {
     icon: Smartphone,
-    label: "WhatsApp",
-    val: "+55 (11) 99999-9999",
+    label: 'WhatsApp',
+    val: '+55 (11) 94812-7577',
   },
-]
+];
 
 export function ContactSection() {
   return (
@@ -33,14 +34,14 @@ export function ContactSection() {
               title="Vamos construir algo extraordinário?"
             />
             <p className="text-slate-400 text-lg">
-              Estou disponível para novos projetos freelance, oportunidades
-              PJ ou propostas CLT de alto nível.
+              Estou disponível para novos projetos freelance, oportunidades PJ ou
+              propostas CLT de alto nível.
             </p>
             <div className="flex flex-col gap-6">
               {contactInfo.map((c, i) => {
-                const Icon = c.icon
+                const Icon = c.icon;
                 return (
-                  <div key={i} className="flex items-center gap-4">
+                  <div className="flex items-center gap-4" key={i}>
                     <div className="flex justify-center items-center bg-white/5 rounded-xl w-12 h-12 text-emerald-500">
                       <Icon size={20} />
                     </div>
@@ -51,24 +52,21 @@ export function ContactSection() {
                       <p className="font-medium text-white">{c.val}</p>
                     </div>
                   </div>
-                )
+                );
               })}
             </div>
           </div>
           <div className="p-12 lg:p-20">
-            <form
-              className="flex flex-col gap-6"
-              onSubmit={(e) => e.preventDefault()}
-            >
+            <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
               <div className="gap-6 grid md:grid-cols-2">
                 <div className="flex flex-col gap-2">
                   <label className="font-bold text-slate-500 text-xs uppercase">
                     Nome
                   </label>
                   <input
-                    type="text"
                     className="bg-white/5 p-4 border border-white/10 focus:border-emerald-500 rounded-xl focus:outline-none w-full text-white transition-colors"
                     placeholder="Seu nome"
+                    type="text"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
@@ -76,9 +74,9 @@ export function ContactSection() {
                     Email
                   </label>
                   <input
-                    type="email"
                     className="bg-white/5 p-4 border border-white/10 focus:border-emerald-500 rounded-xl focus:outline-none w-full text-white transition-colors"
                     placeholder="seu@email.com"
+                    type="email"
                   />
                 </div>
               </div>
@@ -87,9 +85,7 @@ export function ContactSection() {
                   Assunto
                 </label>
                 <select className="bg-white/5 p-4 border border-white/10 focus:border-emerald-500 rounded-xl focus:outline-none w-full text-white transition-colors">
-                  <option className="bg-[#1a1d20]">
-                    Novo Projeto Freelance
-                  </option>
+                  <option className="bg-[#1a1d20]">Novo Projeto Freelance</option>
                   <option className="bg-[#1a1d20]">Oportunidade CLT/PJ</option>
                   <option className="bg-[#1a1d20]">Consultoria Técnica</option>
                 </select>
@@ -99,9 +95,9 @@ export function ContactSection() {
                   Mensagem
                 </label>
                 <textarea
-                  rows={4}
                   className="bg-white/5 p-4 border border-white/10 focus:border-emerald-500 rounded-xl focus:outline-none w-full text-white transition-colors"
                   placeholder="Como posso te ajudar?"
+                  rows={4}
                 ></textarea>
               </div>
               <button className="flex justify-center items-center bg-emerald-500 hover:bg-emerald-600 shadow-emerald-500/20 shadow-lg py-4 rounded-xl w-full font-bold text-white active:scale-[0.98] transition-all">
@@ -109,14 +105,12 @@ export function ContactSection() {
               </button>
             </form>
             <p className="mt-6 text-slate-500 text-xs text-center">
-              Vamos transformar sua ideia em algo{" "}
-              <span className="font-bold text-white">
-                profissional e lucrativo.
-              </span>
+              Vamos transformar sua ideia em algo{'  '}
+              <span className="font-bold text-white">profissional e lucrativo.</span>
             </p>
           </div>
         </div>
       </div>
     </SectionWrapper>
-  )
+  );
 }

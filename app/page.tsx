@@ -4,11 +4,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 import { Footer } from '@/components/footer';
-import { TabId } from '@/lib/data';
 import { LoadingScreen } from '@/components/loading-screen';
-import { AboutSection, ContactSection, ExperienceSection, HomeSection, ProjectsSection, ServicesSection } from '@/components/sections';
+import {
+  AboutSection,
+  ContactSection,
+  ExperienceSection,
+  HomeSection,
+  ProjectsSection,
+  ServicesSection,
+} from '@/components/sections';
 import { SkillsSection } from '@/components/sections/skills-section';
 import { Sidebar } from '@/components/sidebar';
+import type { TabId } from '@/lib/data';
 
 export default function Page() {
   const [activeTab, setActiveTab] = useState<TabId>('inicio');
@@ -37,7 +44,7 @@ export default function Page() {
       case 'experiencia':
         return <ExperienceSection />;
       case 'servicos':
-        return <ServicesSection />;
+        return <ServicesSection onNavigate={setActiveTab} />;
       case 'contato':
         return <ContactSection />;
       default:
@@ -60,8 +67,8 @@ export default function Page() {
         setMobileMenuOpen={setMobileMenuOpen}
       />
 
-      <main className="lg:pl-64 min-h-screen transition-all duration-300">
-        <div className="px-6 md:px-12 pt-20 lg:pt-0">
+      <main className="flex flex-col lg:pl-64 min-h-screen transition-all duration-300 -300">
+        <div className="flex-1 px-6 md:px-12 pt-20 lg:pt-0">
           <AnimatePresence mode="wait">
             <motion.div
               animate={{ opacity: 1, x: 0 }}

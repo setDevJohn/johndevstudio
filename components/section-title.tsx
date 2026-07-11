@@ -1,6 +1,6 @@
 interface SectionTitleProps {
-  subtitle: string
-  title: string
+  subtitle: string;
+  title: string;
 }
 
 export function SectionTitle({ subtitle, title }: SectionTitleProps) {
@@ -14,5 +14,5 @@ export function SectionTitle({ subtitle, title }: SectionTitleProps) {
       </h2>
       <div className="bg-emerald-500 mt-4 rounded-full w-12 h-1"></div>
     </div>
-  )
+  );
 }
