@@ -63,7 +63,7 @@ export function AboutSection() {
           </div>
         </div>
 
-        <div className="gap-5 grid grid-cols-12">
+        <div className="flex flex-col gap-5 md:grid md:grid-cols-12">
           {infoCards.map((card, i) => {
             const layout = [
               'col-span-7 min-h-[180px]',

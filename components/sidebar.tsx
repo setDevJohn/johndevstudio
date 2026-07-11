@@ -135,7 +135,7 @@ export function Sidebar({
       {/* Mobile Top Header */}
       <div className="lg:hidden top-0 left-0 z-50 fixed flex justify-between items-center bg-[#141618]/90 backdrop-blur-md px-6 border-white/5 border-b w-full h-16">
         <h1 className="font-bold text-white text-lg">
-          Gabriel <span className="text-emerald-500">Dev</span>
+          John <span className="text-emerald-500">Dev</span>
         </h1>
         <button
           className="p-2 text-emerald-500"
