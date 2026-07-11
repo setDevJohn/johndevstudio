@@ -27,6 +27,13 @@ export default function Page() {
     return () => clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'instant', // ou auto
+    });
+  }, [activeTab]);
+
   if (loading) {
     return <LoadingScreen />;
   }
