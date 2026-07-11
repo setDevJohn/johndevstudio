@@ -1,21 +1,26 @@
-# Stage de build (igual ao que você já tem)
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
+
 WORKDIR /app
+
 COPY package*.json ./
-RUN npm install
+RUN npm ci
+
 COPY . .
+
 RUN npm run build
 
-# Stage runtime (serve)
-FROM node:18-alpine AS runtime
+FROM node:22-alpine
+
 WORKDIR /app
 
-# instalar 'serve' globalmente para servir o dist
-RUN npm install -g serve
+ENV NODE_ENV=production
+ENV PORT=4000
+ENV HOSTNAME=0.0.0.0
 
-# copia os arquivos construídos
-COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+COPY --from=builder /app/public ./public
 
 EXPOSE 4000
-# -s serve em modo single-page (fallback para index.html)
-CMD ["serve", "-s", "dist", "-l", "4000"]
+
+CMD ["node", "server.js"]
