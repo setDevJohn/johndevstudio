@@ -1,7 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, Smartphone } from 'lucide-react';
+import Image from 'next/image';
 
 import { SectionTitle } from '@/components/section-title';
 import { SectionWrapper } from '@/components/section-wrapper';
@@ -19,7 +20,7 @@ export function ProjectsSection() {
             whileHover={{ y: -10 }}
           >
             <div className="relative h-48 overflow-hidden">
-              <img
+              <Image
                 alt={p.title}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 src={p.image}
@@ -34,7 +35,7 @@ export function ProjectsSection() {
               <h3 className="font-bold text-white group-hover:text-emerald-400 text-xl transition-colors">
                 {p.title}
               </h3>
-              <p className="text-slate-400 text-sm line-clamp-2">{p.description}</p>
+              <p className="text-slate-400 text-sm line-clamp-3">{p.description}</p>
 
               <div className="flex flex-wrap gap-2">
                 {p.tech.map((t) => (
@@ -49,22 +50,69 @@ export function ProjectsSection() {
 
               <div className="flex flex-col gap-3 pt-4 border-white/5 border-t">
                 <div className="text-slate-500 text-xs">
-                  <strong className="text-emerald-500">Resultado:</strong>
+                  <strong className="text-emerald-500">Resultado: </strong>
                   {p.result}
                 </div>
-                <div className="flex items-center gap-4">
-                  <a
-                    className="flex items-center font-bold text-white hover:text-emerald-500 text-xs transition-colors"
-                    href={p.link}
-                  >
-                    <ExternalLink className="mr-1 w-3 h-3" /> Live Demo
-                  </a>
-                  <a
-                    className="flex items-center font-bold text-white hover:text-emerald-500 text-xs transition-colors"
-                    href={p.github}
-                  >
-                    <Github className="mr-1 w-3 h-3" /> Code
-                  </a>
+                <div className="flex flex-wrap items-center gap-4">
+                  {p.link && (
+                    <a
+                      className="flex items-center font-bold text-white hover:text-emerald-500 text-xs transition-colors"
+                      href={p.link}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <ExternalLink className="mr-1 w-3 h-3" />
+                      Demo
+                    </a>
+                  )}
+
+                  {p.playStore && (
+                    <a
+                      className="flex items-center font-bold text-white hover:text-emerald-500 text-xs transition-colors"
+                      href={p.playStore}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <Smartphone className="mr-1 w-3 h-3" />
+                      Play Store
+                    </a>
+                  )}
+
+                  {p.github && (
+                    <a
+                      className="flex items-center font-bold text-white hover:text-emerald-500 text-xs transition-colors"
+                      href={p.github}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <Github className="mr-1 w-3 h-3" />
+                      Código
+                    </a>
+                  )}
+
+                  {p.githubFrontend && (
+                    <a
+                      className="flex items-center font-bold text-white hover:text-emerald-500 text-xs transition-colors"
+                      href={p.githubFrontend}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <Github className="mr-1 w-3 h-3" />
+                      Front-end
+                    </a>
+                  )}
+
+                  {p.githubBackend && (
+                    <a
+                      className="flex items-center font-bold text-white hover:text-emerald-500 text-xs transition-colors"
+                      href={p.githubBackend}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <Github className="mr-1 w-3 h-3" />
+                      Back-end
+                    </a>
+                  )}
                 </div>
               </div>
             </div>

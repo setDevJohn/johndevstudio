@@ -1,3 +1,10 @@
+import authentication from '@/public/images/authentication.png';
+import csc from '@/public/images/csc.png';
+import flameGrill from '@/public/images/flame-grill.png';
+import ipTracker from '@/public/images/ip-tracker.png';
+import orbita from '@/public/images/orbita.png';
+import ssfight from '@/public/images/ssfight.png';
+
 export interface Project {
   id: number;
   title: string;
@@ -7,8 +14,18 @@ export interface Project {
   problem: string;
   result: string;
   tech: string[];
-  link: string;
-  github: string;
+
+  // Site
+  link?: string;
+
+  // Mobile
+  playStore?: string;
+  appStore?: string;
+
+  // Repositórios
+  github?: string;
+  githubFrontend?: string;
+  githubBackend?: string;
 }
 
 export interface Skill {
@@ -38,46 +55,127 @@ export interface Experience {
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: 'QuantumSaaS Dashboard',
-    category: 'SaaS',
-    image:
-      'https://images.unsplash.com/photo-1551288049-bbbda536339a?auto=format&fit=crop&q=80&w=800',
-    description: 'Plataforma de análise de dados em tempo real com processamento de IA.',
+    title: 'SS Fight',
+    category: 'Aplicativo Mobile',
+    image: ssfight,
+    description:
+      'Aplicativo completo para gestão de academias de artes marciais, disponível na Play Store.',
     problem:
-      'Empresas tinham dificuldade em visualizar gargalos operacionais em grandes fluxos de dados.',
+      'Centralizar o gerenciamento de alunos, planos, presenças, graduações, pagamentos e comunicação em uma única plataforma.',
     result:
-      'Redução de 30% no tempo de resposta operacional para os primeiros 50 clientes corporativos.',
-    tech: ['Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
-    link: '#',
-    github: '#',
+      'Aplicação completa composta por App Mobile, API em NestJS e painel administrativo, utilizada em ambiente real.',
+    tech: [
+      'React Native',
+      'Expo',
+      'NativeWind',
+      'NestJS',
+      'Prisma',
+      'PostgreSQL',
+      'React Query',
+      'TypeScript',
+    ],
+    link: 'https://ssfight.com.br/',
+    playStore:
+      'https://play.google.com/store/apps/details?id=com.ssfight.app&pcampaignid=web_share',
+    githubFrontend: '',
+    githubBackend: '',
   },
+
   {
     id: 2,
-    title: 'EcoTrade Marketplace',
-    category: 'Sistemas Web',
-    image:
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-    description: 'E-commerce B2B focado em créditos de carbono e sustentabilidade.',
-    problem: 'Falta de transparência e rastreabilidade no mercado de ativos ambientais.',
+    title: 'Órbita',
+    category: 'Sistema Financeiro',
+    image: orbita,
+    description:
+      'Sistema para gerenciamento financeiro pessoal com dashboard, categorias, gráficos e controle de receitas e despesas.',
+    problem:
+      'Facilitar o controle financeiro através de uma plataforma moderna, intuitiva e organizada.',
     result:
-      'Processamento de mais de $2M em transações no primeiro semestre com 100% de integridade.',
-    tech: ['React', 'Prisma', 'Tailwind', 'Docker'],
-    link: '#',
-    github: '#',
+      'Projeto Full Stack desenvolvido com arquitetura escalável, autenticação, dashboard e gerenciamento financeiro.',
+    tech: ['React', 'TypeScript', 'Express', 'Prisma', 'PostgreSQL', 'Chart.js'],
+    link: '',
+    github: '',
   },
+
   {
     id: 3,
-    title: 'Nexus High-Ticket LP',
-    category: 'Landing Pages',
-    image:
-      'https://images.unsplash.com/photo-1481487196290-c152efe083f5?auto=format&fit=crop&q=80&w=800',
-    description: 'Landing page de alta conversão para consultoria financeira premium.',
-    problem: 'Baixa taxa de conversão em leads qualificados no tráfego pago.',
+    title: 'Sistema de Autenticação',
+    category: 'Backend',
+    image: authentication,
+    description:
+      'Template completo de autenticação com cadastro, login, recuperação de senha, confirmação de conta e envio de e-mails.',
+    problem:
+      'Criar uma base reutilizável para acelerar novos projetos com autenticação segura.',
     result:
-      'Aumento de 45% na taxa de captura de leads ultra-qualificados (High Ticket).',
-    tech: ['Next.js', 'Framer Motion', 'Three.js'],
-    link: '#',
-    github: '#',
+      'Sistema reutilizável com autenticação JWT, recuperação de senha, confirmação por e-mail e arquitetura pronta para produção.',
+    tech: [
+      'React',
+      'Vite',
+      'Node.js',
+      'Express',
+      'Prisma',
+      'JWT',
+      'Nodemailer',
+      'TypeScript',
+    ],
+    link: 'https://auth.johndevstudio.com/',
+    githubFrontend: 'https://github.com/setDevJohn/authenticator',
+    githubBackend: 'https://github.com/setDevJohn/authenticator-api',
+  },
+
+  {
+    id: 4,
+    title: 'Flame Grill',
+    category: 'Cardápio Digital',
+    image: flameGrill,
+    description:
+      'Cardápio digital para restaurantes com gerenciamento de pedidos e experiência otimizada para dispositivos móveis.',
+    problem:
+      'Digitalizar o atendimento e facilitar o processo de pedidos em restaurantes.',
+    result:
+      'Interface moderna, responsiva e otimizada para navegação rápida utilizando Next.js.',
+    tech: [
+      'Next.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'Shadcn UI',
+      'React Hook Form',
+      'Zod',
+    ],
+    link: 'https://flamegrill.johndevstudio.com/',
+    github: 'https://github.com/setDevJohn/flame-grill',
+  },
+
+  {
+    id: 5,
+    title: 'CSC Viagens',
+    category: 'Website Institucional',
+    image: csc,
+    description:
+      'Website institucional moderno para agência de viagens com apresentação de destinos e formulário de contato.',
+    problem:
+      'Criar uma presença digital moderna para divulgação dos serviços da empresa.',
+    result:
+      'Site responsivo desenvolvido com foco em performance, SEO e experiência do usuário.',
+    tech: ['Next.js', 'React', 'Tailwind CSS', 'TypeScript', 'Nodemailer'],
+    link: 'https://csc-viagens.vercel.app/',
+    github: '',
+  },
+
+  {
+    id: 6,
+    title: 'IP Address Tracker',
+    category: 'API Integration',
+    image: ipTracker,
+    description:
+      'Aplicação que localiza um endereço IP ou domínio exibindo informações geográficas em mapa interativo.',
+    problem:
+      'Permitir visualizar rapidamente a localização de IPs utilizando serviços externos.',
+    result:
+      'Integração com API de geolocalização e renderização dinâmica utilizando Leaflet.',
+    tech: ['React', 'TypeScript', 'Leaflet', 'REST API', 'SCSS'],
+    link: 'https://ip-address-tracker-jhonyfreitasdev.vercel.app/',
+    github: 'https://github.com/setDevJohn/ip-address-tracker',
   },
 ];
 
