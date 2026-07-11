@@ -150,7 +150,7 @@ export function Sidebar({
         {mobileMenuOpen && (
           <motion.div
             animate={{ x: 0 }}
-            className="lg:hidden z-40 fixed inset-0 bg-[#0f1113] pt-16"
+            className="lg:hidden z-40 fixed inset-0 bg-[#0f1113] pt-16 pb-8 overflow-y-auto overscroll-contain"
             exit={{ x: '-100%' }}
             initial={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 25, stiffness: 200 }}
