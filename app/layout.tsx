@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import type { ReactNode } from 'react';
+import { Toaster } from 'sonner';
 
 const _geist = Geist({ subsets: ['latin'] });
 const _geistMono = Geist_Mono({ subsets: ['latin'] });
@@ -30,6 +31,9 @@ export default function RootLayout({
     <html className="bg-[#0f1113]" lang="pt-BR">
       <body className="bg-[#0f1113] font-sans antialiased">
         {children}
+
+        <Toaster duration={4000} position="top-right" closeButton richColors />
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
